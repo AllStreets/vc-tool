@@ -6,7 +6,7 @@ import { logger } from '../utils/logger.js';
 export class YCScraperPlugin extends BasePlugin {
   constructor() {
     super('YCombinator');
-    this.enabled = process.env.YC_SCRAPER_ENABLED === 'true';
+    this.enabled = true; // Always enabled - no API key required
     this.baseUrl = 'https://www.ycombinator.com';
     this.userAgent = process.env.USER_AGENT || 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';
   }

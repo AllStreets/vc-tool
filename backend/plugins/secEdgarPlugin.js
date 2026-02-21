@@ -6,7 +6,7 @@ import { logger } from '../utils/logger.js';
 export class SECEdgarPlugin extends BasePlugin {
   constructor() {
     super('SECEdgar');
-    this.enabled = process.env.SEC_EDGAR_ENABLED === 'true';
+    this.enabled = true; // Always enabled - no API key required
     this.baseUrl = 'https://data.sec.gov/api/xbrl';
     this.companiesUrl = 'https://www.sec.gov/cgi-bin/browse-edgar';
     this.userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';

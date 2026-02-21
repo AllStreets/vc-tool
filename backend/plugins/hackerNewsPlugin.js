@@ -6,7 +6,7 @@ import { logger } from '../utils/logger.js';
 export class HackerNewsPlugin extends BasePlugin {
   constructor() {
     super('HackerNews');
-    this.enabled = process.env.HACKER_NEWS_ENABLED === 'true';
+    this.enabled = true; // Always enabled - no API key required
     this.baseUrl = 'https://hacker-news.firebaseio.com/v0';
   }
 
