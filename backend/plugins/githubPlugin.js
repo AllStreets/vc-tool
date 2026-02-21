@@ -7,13 +7,11 @@ export class GitHubPlugin extends BasePlugin {
   constructor() {
     super('GitHub');
     this.token = process.env.GITHUB_TOKEN;
-    this.enabled = !!this.token;
+    this.enabled = true; // Always enabled - gracefully handles missing API key
     this.baseUrl = 'https://api.github.com';
   }
 
   async fetchTrends(params = {}) {
-    if (!this.enabled) return [];
-
     const cacheKey = 'github_trends';
     const cached = getCached(cacheKey);
     if (cached) {

@@ -7,13 +7,11 @@ export class NewsAPIPlugin extends BasePlugin {
   constructor() {
     super('NewsAPI');
     this.apiKey = process.env.NEWSAPI_KEY;
-    this.enabled = !!this.apiKey;
+    this.enabled = true; // Always enabled - gracefully handles missing API key
     this.baseUrl = 'https://newsapi.org/v2';
   }
 
   async fetchTrends(params = {}) {
-    if (!this.enabled) return [];
-
     const cacheKey = 'newsapi_trends';
     const cached = getCached(cacheKey);
     if (cached) {
@@ -76,8 +74,6 @@ export class NewsAPIPlugin extends BasePlugin {
   }
 
   async fetchDeals(params = {}) {
-    if (!this.enabled) return [];
-
     const cacheKey = 'newsapi_deals';
     const cached = getCached(cacheKey);
     if (cached) {

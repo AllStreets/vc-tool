@@ -7,13 +7,11 @@ export class SerperPlugin extends BasePlugin {
   constructor() {
     super('Serper');
     this.apiKey = process.env.SERPER_API_KEY;
-    this.enabled = !!this.apiKey;
+    this.enabled = true; // Always enabled - gracefully handles missing API key
     this.baseUrl = 'https://google.serper.dev';
   }
 
   async fetchTrends(params = {}) {
-    if (!this.enabled) return [];
-
     const cacheKey = 'serper_trends';
     const cached = getCached(cacheKey);
     if (cached) {
@@ -84,8 +82,6 @@ export class SerperPlugin extends BasePlugin {
   }
 
   async fetchDeals(params = {}) {
-    if (!this.enabled) return [];
-
     const cacheKey = 'serper_deals';
     const cached = getCached(cacheKey);
     if (cached) {
