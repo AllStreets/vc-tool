@@ -6,7 +6,10 @@ import { dirname } from 'path';
 import { PluginManager } from './plugins/pluginManager.js';
 import { PluginService } from './services/pluginService.js';
 import { TrendScoringService } from './services/trendScoringService.js';
+import { GitHubPlugin } from './plugins/githubPlugin.js';
 import { HackerNewsPlugin } from './plugins/hackerNewsPlugin.js';
+import { NewsAPIPlugin } from './plugins/newsapiPlugin.js';
+import { SerperPlugin } from './plugins/serperPlugin.js';
 import { YCScraperPlugin } from './plugins/ycScraperPlugin.js';
 import { SECEdgarPlugin } from './plugins/secEdgarPlugin.js';
 import { AngelListPlugin } from './plugins/angellistPlugin.js';
@@ -23,7 +26,12 @@ const PORT = process.env.PORT || 5000;
 // Initialize plugin system
 const pluginManager = new PluginManager();
 
-// Register all free plugins (no API key needed)
+// Register primary data sources (activate with API keys)
+pluginManager.registerPlugin('github', new GitHubPlugin());
+pluginManager.registerPlugin('newsapi', new NewsAPIPlugin());
+pluginManager.registerPlugin('serper', new SerperPlugin());
+
+// Register free plugins (no API key needed)
 pluginManager.registerPlugin('hackernews', new HackerNewsPlugin());
 pluginManager.registerPlugin('yc_scraper', new YCScraperPlugin());
 pluginManager.registerPlugin('sec_edgar', new SECEdgarPlugin());
