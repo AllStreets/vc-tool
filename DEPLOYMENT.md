@@ -1,9 +1,9 @@
 # VC Intelligence Hub - Deployment Cheat Sheet
 
-## 🚀 Quick Deploy (5 minutes total)
+## Quick Deploy (5 minutes total)
 
 ### Prerequisites
-- GitHub account (already done ✅)
+- GitHub account (already done [DONE])
 - Vercel account (free: https://vercel.com)
 - Railway account (free tier: https://railway.app) OR Render (https://render.com)
 
@@ -253,7 +253,7 @@ curl $BACKEND_URL/api-status
 | HackerNews API | Free | No auth required |
 | YC Scraper | Free | Web scraping |
 | SEC EDGAR | Free | No auth required |
-| **TOTAL** | **$0/month** | ✅ Fully free |
+| **TOTAL** | **$0/month** |  Fully free |
 
 ---
 
