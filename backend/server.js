@@ -13,6 +13,7 @@ import { SerperPlugin } from './plugins/serperPlugin.js';
 import { YCScraperPlugin } from './plugins/ycScraperPlugin.js';
 import { SECEdgarPlugin } from './plugins/secEdgarPlugin.js';
 import { AngelListPlugin } from './plugins/angellistPlugin.js';
+import { TwitterPlugin } from './plugins/twitterPlugin.js';
 import { logger } from './utils/logger.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -38,6 +39,7 @@ pluginManager.registerPlugin('sec_edgar', new SECEdgarPlugin());
 
 // Register future plugins (will activate when API keys available)
 pluginManager.registerPlugin('angellist', new AngelListPlugin());
+pluginManager.registerPlugin('twitter', new TwitterPlugin());
 
 const pluginService = new PluginService(pluginManager);
 const trendScoringService = new TrendScoringService();
